@@ -8,9 +8,13 @@ import SessionCard from "../components/dashboard/SessionCard";
 const Dashboard = () => {
   const [completedTasks, setCompletedTasks] = useState(0);
   const [completedStreak, setCompletedStreak] = useState(0);
-
-  const handleCompleteTask = () => {
-    setCompletedTasks((prev) => prev + 1);
+  const Productivity = 0
+  const handleCompleteTask = (completed) => {
+    if (completed == true) {
+      setCompletedTasks((prev) => prev - 1);
+    } else {
+      setCompletedTasks((prev) => prev + 1);
+    }
   };
 
   const stats = [
@@ -28,7 +32,7 @@ const Dashboard = () => {
     },
     {
       title: "Productivity Score",
-      value: "92%",
+      value: Productivity,
       icon: <FaChartLine className="text-green-500 text-3xl" />,
       progress: null,
     },

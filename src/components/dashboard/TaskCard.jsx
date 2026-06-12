@@ -5,10 +5,10 @@ const TaskCard = ({ task, onComplete }) => {
   const [completed, setCompleted] = useState(false);
 
   const handleClick = () => {
-    if (!completed) {
-      setCompleted(true);
-      onComplete(); // Dashboard ka state update hoga
-    }
+
+      setCompleted(!completed);
+      onComplete(completed); // Dashboard ka state update hoga
+    
   };
   return (
     <div className="p-3 flex items-center justify-between rounded-lg bg-gray-100 hover:bg-blue-50 hover:translate-x-2 transition-all duration-300 cursor-pointer group">
