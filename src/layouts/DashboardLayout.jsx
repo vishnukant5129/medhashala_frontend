@@ -4,13 +4,13 @@ import Navbar from "../components/common/Navbar";
 
 const DashboardLayout = () => {
   return (
-    <div className="flex">
+    <div className="h-screen flex overflow-hidden">
       <Sidebar />
 
-      <div className="flex-1 bg-slate-100 min-h-screen">
+      <div className="flex-1 flex flex-col bg-slate-100">
         <Navbar />
 
-        <main className="p-6">
+        <main className="flex-5 overflow-y-auto">
           <Outlet />
         </main>
       </div>

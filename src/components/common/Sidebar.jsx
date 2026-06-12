@@ -16,7 +16,7 @@ import {
 const menuItems = [
   {
     name: "Dashboard",
-    path: "/dashboard",
+    path: "/",
     icon: <FaHome />,
   },
   {
@@ -57,13 +57,13 @@ const Sidebar = () => {
   return (
     <aside
       className={`
-        bg-slate-950 text-white
-        min-h-screen
-        transition-all duration-300
-        flex flex-col
-        border-r border-slate-800
-        ${collapsed ? "w-20" : "w-72"}
-      `}
+    bg-slate-950 text-white
+    h-screen
+    transition-all duration-300
+    flex flex-col
+    border-r border-slate-800
+    ${collapsed ? "w-20" : "w-55"}
+  `}
     >
       {/* Header */}
       <div className="flex items-center justify-between p-5 border-b border-slate-800">
@@ -98,10 +98,9 @@ const Sidebar = () => {
                 flex items-center gap-4
                 px-4 py-3 rounded-xl
                 transition-all duration-200
-                ${
-                  isActive
-                    ? "bg-violet-600 text-white shadow-lg"
-                    : "hover:bg-slate-800 text-slate-300"
+                ${isActive
+                  ? "bg-violet-600 text-white shadow-lg"
+                  : "hover:bg-slate-800 text-slate-300"
                 }
               `
               }
