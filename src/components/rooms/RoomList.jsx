@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import RoomCard from "./RoomCard";
 
-const RoomList = () => {
-    return (
-        <div>
+const RoomList = ({ rooms }) => {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {rooms.map((room) => (
+        <RoomCard key={room.id} room={room} />
+      ))}
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default RoomList
+export default RoomList;
