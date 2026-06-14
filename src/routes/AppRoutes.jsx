@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 // import Home from "../pages/Home";
-// import Login from "../pages/Login";
-// import Signup from "../pages/Signup";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
 
 import Dashboard from "../pages/Dashboard";
 import Pomodoro from "../pages/Pomodoro";
@@ -20,8 +20,8 @@ function AppRoutes() {
         <Routes>
             {/* Public Routes */}
             {/* <Route path="/" element={<Home />} /> */}
-            {/* <Route path="/login" element={<Login />} /> */}
-            {/* <Route path="/signup" element={<Signup />} /> */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
 
             {/* Protected Dashboard Routes */}
             <Route
