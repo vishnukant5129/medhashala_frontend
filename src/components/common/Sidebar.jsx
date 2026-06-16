@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import Tooltip from "./Tooltip.jsx";
 
 import {
   FaHome,
@@ -90,29 +91,31 @@ const Sidebar = () => {
       <div className="flex-1 p-4">
         <div className="space-y-2">
           {menuItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                `
+            <Tooltip key={item.path} text={collapsed ? item.name : ""}>
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  `
                 flex items-center gap-4
                 px-4 py-3 rounded-xl
                 transition-all duration-200
                 ${isActive
-                  ? "bg-violet-600 text-white shadow-lg"
-                  : "hover:bg-slate-800 text-slate-300"
-                }
+                    ? "bg-violet-600 text-white shadow-lg"
+                    : "hover:bg-slate-800 text-slate-300"
+                  }
               `
-              }
-            >
-              <span className="text-lg">{item.icon}</span>
+                }
+              >
+                <span className="text-lg">{item.icon}</span>
 
-              {!collapsed && (
-                <span className="font-medium">
-                  {item.name}
-                </span>
-              )}
-            </NavLink>
+                {!collapsed && (
+                  <span className="font-medium">
+                    {item.name}
+                  </span>
+                )}
+              </NavLink>
+            </Tooltip>
           ))}
         </div>
       </div>
@@ -130,21 +133,24 @@ const Sidebar = () => {
           </div>
         )} */}
 
-        <button
-          className="
-            flex items-center gap-3
-            w-full
-            px-4 py-3
-            rounded-xl
-            bg-red-500/20
-            hover:bg-red-500/30
-            text-red-400
-          "
-        >
-          <FaSignOutAlt />
+        <Tooltip text={collapsed ? "Logout" : ""}>
+          <button
+            className="
+      flex items-center gap-3
+      w-full
+      px-4 py-3
+      rounded-xl
+      bg-red-500/20
+      hover:bg-red-500/30
+      text-red-400
+      transition-all duration-200
+    "
+          >
+            <FaSignOutAlt />
 
-          {!collapsed && "Logout"}
-        </button>
+            {!collapsed && <span>Logout</span>}
+          </button>
+        </Tooltip>
       </div>
     </aside>
   );
