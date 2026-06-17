@@ -1,5 +1,6 @@
 import { FaBell } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import Tooltip from "./Tooltip.jsx";
 
 const getGreeting = () => {
   const hour = new Date().getHours();
@@ -29,7 +30,7 @@ const Navbar = () => {
       {/* Right */}
       <div className="flex items-center gap-4">
         {/* Notification */}
-        <button
+        {/* <button
           className="
             relative
             h-11 w-11
@@ -45,12 +46,13 @@ const Navbar = () => {
           <FaBell className="text-[#0B1F3A] text-lg" />
 
           <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#F4B400]" />
-        </button>
+        </button> */}
 
         {/* Profile */}
-        <NavLink
-          to="/profile"
-          className="
+        <Tooltip text="open" position="bottom">
+          <NavLink
+            to="/profile"
+            className="
             flex items-center gap-3
             bg-white
             border border-[#E2E8F0]
@@ -60,26 +62,27 @@ const Navbar = () => {
             hover:shadow-md
             transition
           "
-        >
-          <img
-            src="https://i.pravatar.cc/40"
-            alt="Profile"
-            className="
+          >
+            <img
+              src="https://i.pravatar.cc/40"
+              alt="Profile"
+              className="
               w-11 h-11 rounded-full
               border-2 border-[#F4B400]
             "
-          />
+            />
 
-          <div className="hidden md:block">
-            <h4 className="font-semibold text-[#0B1F3A]">
-              {name}
-            </h4>
+            <div className="hidden md:block">
+              <h4 className="font-semibold text-[#0B1F3A]">
+                {name}
+              </h4>
 
-            <p className="text-xs text-gray-500">
-              Student
-            </p>
-          </div>
-        </NavLink>
+              <p className="text-xs text-gray-500">
+                Student
+              </p>
+            </div>
+          </NavLink>
+        </Tooltip>
       </div>
     </header>
   );
