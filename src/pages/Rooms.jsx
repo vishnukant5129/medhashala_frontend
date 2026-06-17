@@ -34,10 +34,16 @@ const rooms = [
 
 const Rooms = () => {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
-        Study Rooms
-      </h1>
+    <div className="min-h-screen bg-[#F8FAFC] p-6 space-y-8">
+      <div>
+        <h1 className="text-4xl font-bold text-[#0B1F3A]">
+          Study Rooms
+        </h1>
+
+        <p className="text-gray-500 mt-2">
+          Join collaborative study rooms and learn together.
+        </p>
+      </div>
 
       <RoomList rooms={rooms} />
     </div>

@@ -3,38 +3,73 @@ import { FaStar, FaUserGraduate } from "react-icons/fa";
 
 const MentorCard = ({ mentor }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5 hover:shadow-lg transition">
+    <div
+      className="
+        bg-white
+        border border-[#E2E8F0]
+        rounded-3xl
+        p-6
+        shadow-sm
+        hover:shadow-lg
+        hover:-translate-y-1
+        transition-all duration-300
+      "
+    >
+      {/* Profile */}
       <div className="flex items-center gap-4">
         <img
           src={mentor.image}
           alt={mentor.name}
-          className="w-16 h-16 rounded-full object-cover"
+          className="
+            w-16 h-16
+            rounded-full
+            object-cover
+            border-4 border-[#F4B400]/20
+          "
         />
 
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+          <h3 className="text-lg font-bold text-[#0B1F3A]">
             {mentor.name}
           </h3>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500">
             {mentor.role}
           </p>
         </div>
       </div>
 
-      <div className="mt-4 space-y-2">
-        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-          <FaUserGraduate />
+      {/* Details */}
+      <div className="mt-6 space-y-4">
+        <div className="flex items-center gap-3 text-gray-600">
+          <FaUserGraduate className="text-[#F4B400]" />
+
           <span>{mentor.expertise}</span>
         </div>
 
-        <div className="flex items-center gap-2 text-yellow-500">
-          <FaStar />
-          <span>{mentor.rating}/5</span>
+        <div className="flex items-center gap-3">
+          <FaStar className="text-[#F4B400]" />
+
+          <span className="font-medium text-[#0B1F3A]">
+            {mentor.rating}/5
+          </span>
         </div>
       </div>
 
-      <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">
+      {/* Button */}
+      <button
+        className="
+          w-full
+          mt-6
+          bg-[#F4B400]
+          text-[#0B1F3A]
+          font-semibold
+          py-3
+          rounded-2xl
+          hover:scale-[1.02]
+          transition-all duration-300
+        "
+      >
         Connect
       </button>
     </div>

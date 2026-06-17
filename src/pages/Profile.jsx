@@ -20,83 +20,148 @@ const Profile = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden">
-        {/* Header */}
-        <div className="h-32 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+    <div className="min-h-screen bg-[#F8FAFC] p-6">
+      <div
+        className="
+          max-w-5xl mx-auto
+          bg-white
+          border border-[#E2E8F0]
+          rounded-3xl
+          shadow-sm
+          overflow-hidden
+        "
+      >
+        {/* Header Banner */}
+        <div className="h-40 bg-[#0B1F3A]" />
 
-        {/* Profile Section */}
-        <div className="px-6 pb-6">
-          <div className="flex flex-col md:flex-row md:items-end gap-4">
+        {/* Content */}
+        <div className="px-8 pb-8">
+          {/* Profile Top */}
+          <div className="flex flex-col md:flex-row md:items-end gap-6 -mt-16">
             <img
               src={user.image}
               alt={user.name}
-              className="w-28 h-28 rounded-full border-4 border-white dark:border-gray-800 -mt-14 object-cover"
+              className="
+                w-32 h-32
+                rounded-full
+                border-4 border-[#F4B400]
+                object-cover
+                shadow-md
+              "
             />
 
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-3xl font-bold text-[#0B1F3A]">
                 {user.name}
               </h1>
 
-              <p className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mt-1">
-                <FaEnvelope />
+              <p className="flex items-center gap-2 text-gray-500 mt-2">
+                <FaEnvelope className="text-[#F4B400]" />
                 {user.email}
               </p>
 
-              <p className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mt-1">
-                <FaUserGraduate />
+              <p className="flex items-center gap-2 text-gray-500 mt-1">
+                <FaUserGraduate className="text-[#F4B400]" />
                 {user.role}
               </p>
             </div>
 
-            <button className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
+            <button
+              className="
+                px-6 py-3
+                bg-[#F4B400]
+                text-[#0B1F3A]
+                font-semibold
+                rounded-2xl
+                hover:scale-105
+                transition-all
+              "
+            >
               Edit Profile
             </button>
           </div>
 
-          {/* Bio */}
-          <div className="mt-6">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+          {/* Bio Section */}
+          <div className="mt-10">
+            <h2 className="text-2xl font-bold text-[#0B1F3A] mb-3">
               About
             </h2>
 
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-500 leading-relaxed">
               {user.bio}
             </p>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-blue-600">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {/* Tasks */}
+            <div
+              className="
+                bg-white
+                border border-[#E2E8F0]
+                rounded-3xl
+                p-6
+                shadow-sm
+                hover:shadow-lg
+                transition
+              "
+            >
+              <div className="flex items-center gap-3 text-[#F4B400]">
                 <FaTasks />
-                <span className="font-medium">Tasks Completed</span>
+                <span className="font-medium text-gray-600">
+                  Tasks Completed
+                </span>
               </div>
 
-              <h3 className="text-2xl font-bold mt-2 text-gray-800 dark:text-white">
+              <h3 className="text-3xl font-bold text-[#0B1F3A] mt-4">
                 {user.completedTasks}
               </h3>
             </div>
 
-            <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-green-600">
+            {/* Study Hours */}
+            <div
+              className="
+                bg-white
+                border border-[#E2E8F0]
+                rounded-3xl
+                p-6
+                shadow-sm
+                hover:shadow-lg
+                transition
+              "
+            >
+              <div className="flex items-center gap-3 text-[#F4B400]">
                 <FaClock />
-                <span className="font-medium">Study Hours</span>
+                <span className="font-medium text-gray-600">
+                  Study Hours
+                </span>
               </div>
 
-              <h3 className="text-2xl font-bold mt-2 text-gray-800 dark:text-white">
+              <h3 className="text-3xl font-bold text-[#0B1F3A] mt-4">
                 {user.studyHours}
               </h3>
             </div>
 
-            <div className="bg-gray-100 dark:bg-gray-700 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-purple-600">
+            {/* Rooms */}
+            <div
+              className="
+                bg-white
+                border border-[#E2E8F0]
+                rounded-3xl
+                p-6
+                shadow-sm
+                hover:shadow-lg
+                transition
+              "
+            >
+              <div className="flex items-center gap-3 text-[#F4B400]">
                 <FaUsers />
-                <span className="font-medium">Rooms Joined</span>
+                <span className="font-medium text-gray-600">
+                  Rooms Joined
+                </span>
               </div>
 
-              <h3 className="text-2xl font-bold mt-2 text-gray-800 dark:text-white">
+              <h3 className="text-3xl font-bold text-[#0B1F3A] mt-4">
                 {user.roomsJoined}
               </h3>
             </div>

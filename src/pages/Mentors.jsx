@@ -38,13 +38,13 @@ const mentors = [
 
 const Mentor = () => {
   return (
-    <div className="p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] p-6 space-y-8">
+      <div>
+        <h1 className="text-4xl font-bold text-[#0B1F3A]">
           Mentor Connect
         </h1>
 
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
+        <p className="text-gray-500 mt-2">
           Connect with experienced mentors and accelerate your learning journey.
         </p>
       </div>

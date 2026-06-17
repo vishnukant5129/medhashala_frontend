@@ -58,33 +58,42 @@ const Sidebar = () => {
   return (
     <aside
       className={`
-    bg-slate-950 text-white
-    h-screen
-    transition-all duration-300
-    flex flex-col
-    border-r border-slate-800
-    ${collapsed ? "w-20" : "w-55"}
-  `}
+        bg-[#0B1F3A]
+        text-white
+        h-screen
+        flex flex-col
+        border-r border-[#1E293B]
+        transition-all duration-300
+        ${collapsed ? "w-20" : "w-55"}
+      `}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-5 border-b border-slate-800">
+      <div className="flex items-center justify-between p-5 border-b border-[#1E293B]">
         {!collapsed && (
           <div>
-            <h1 className="text-xl font-bold text-violet-400">
+            <h1 className="text-2xl font-bold text-[#F4B400]">
               Medhashala
             </h1>
-            <p className="text-xs text-slate-400">
+
+            <p className="text-xs text-gray-300">
               Productivity Platform
             </p>
           </div>
         )}
+        <Tooltip text={collapsed ? "Open Menu" : "Close Menu"}>
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="
+          p-2
+          rounded-xl
+          hover:bg-white/10
+          transition
+        "
+          >
+            <FaBars />
+          </button>
+        </Tooltip>
 
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="p-2 rounded-lg hover:bg-slate-800"
-        >
-          <FaBars />
-        </button>
       </div>
 
       {/* Menu */}
@@ -93,18 +102,18 @@ const Sidebar = () => {
           {menuItems.map((item) => (
             <Tooltip key={item.path} text={collapsed ? item.name : ""}>
               <NavLink
-                key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
                   `
-                flex items-center gap-4
-                px-4 py-3 rounded-xl
-                transition-all duration-200
-                ${isActive
-                    ? "bg-violet-600 text-white shadow-lg"
-                    : "hover:bg-slate-800 text-slate-300"
+                  flex items-center gap-4
+                  px-4 py-3 rounded-2xl
+                  transition-all duration-200
+
+                  ${isActive
+                    ? "bg-[#F4B400] text-[#0B1F3A] shadow-lg font-semibold"
+                    : "text-gray-300 hover:bg-white/10 hover:text-white"
                   }
-              `
+                `
                 }
               >
                 <span className="text-lg">{item.icon}</span>
@@ -121,34 +130,27 @@ const Sidebar = () => {
       </div>
 
       {/* User Section */}
-      <div className="border-t border-slate-800 p-4">
-        {/* {!collapsed && (
-          <div className="mb-4">
-            <h3 className="font-semibold">
-              Vishnu
-            </h3>
-            <p className="text-xs text-slate-400">
-              Frontend Engineer
-            </p>
-          </div>
-        )} */}
-
+      <div className="border-t border-[#1E293B] p-4">
         <Tooltip text={collapsed ? "Logout" : ""}>
           <button
             className="
-      flex items-center gap-3
-      w-full
-      px-4 py-3
-      rounded-xl
-      bg-red-500/20
-      hover:bg-red-500/30
-      text-red-400
-      transition-all duration-200
-    "
+              flex items-center gap-3
+              w-full
+              px-4 py-3
+              rounded-2xl
+              bg-red-500/15
+              text-red-300
+              hover:bg-red-500/25
+              transition
+            "
           >
             <FaSignOutAlt />
 
-            {!collapsed && <span>Logout</span>}
+            {!collapsed && (
+              <span className="font-medium">
+                Logout
+              </span>
+            )}
           </button>
         </Tooltip>
       </div>

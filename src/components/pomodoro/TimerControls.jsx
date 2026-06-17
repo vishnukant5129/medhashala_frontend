@@ -1,24 +1,37 @@
 import { FaPlay, FaPause, FaRedo } from "react-icons/fa";
 
-const TimerControls = ({
-    isRunning,
-    onStart,
-    onPause,
-    onReset,
-}) => {
+const TimerControls = ({ isRunning, onStart, onPause, onReset }) => {
     return (
-        <div className="flex gap-4 justify-center">
+        <div className="flex gap-5 justify-center">
             {isRunning ? (
                 <button
                     onClick={onPause}
-                    className="bg-yellow-500 px-5 py-3 rounded-lg text-white"
+                    className="
+            w-14 h-14
+            rounded-2xl
+            bg-[#F4B400]
+            text-[#0B1F3A]
+            flex items-center justify-center
+            text-xl
+            hover:scale-105
+            transition
+          "
                 >
                     <FaPause />
                 </button>
             ) : (
                 <button
                     onClick={onStart}
-                    className="bg-green-500 px-5 py-3 rounded-lg text-white"
+                    className="
+            w-14 h-14
+            rounded-2xl
+            bg-[#F4B400]
+            text-[#0B1F3A]
+            flex items-center justify-center
+            text-xl
+            hover:scale-105
+            transition
+          "
                 >
                     <FaPlay />
                 </button>
@@ -26,7 +39,16 @@ const TimerControls = ({
 
             <button
                 onClick={onReset}
-                className="bg-red-500 px-5 py-3 rounded-lg text-white"
+                className="
+          w-14 h-14
+          rounded-2xl
+          bg-white
+          border border-[#E2E8F0]
+          text-[#0B1F3A]
+          flex items-center justify-center
+          hover:border-[#F4B400]
+          transition
+        "
             >
                 <FaRedo />
             </button>
