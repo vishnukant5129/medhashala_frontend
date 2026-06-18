@@ -1,70 +1,108 @@
-import { useState } from "react";
+import {
+  FaCheckCircle,
+  FaFlag,
+  FaCalendarAlt,
+  FaRegCircle
+} from "react-icons/fa";
+
+
+
+const priorityStyles = {
+  High: {
+    bg: "bg-red-100",
+    text: "text-red-600",
+  },
+  Medium: {
+    bg: "bg-yellow-100",
+    text: "text-yellow-700",
+  },
+  Low: {
+    bg: "bg-green-100",
+    text: "text-green-600",
+  },
+};
 
 const TaskCard = ({ task, onComplete }) => {
-  const [completed, setCompleted] = useState(false);
-
-  const handleClick = () => {
-    setCompleted(!completed);
-    onComplete(completed);
-  };
+  const style =
+    priorityStyles[task.priority] || priorityStyles.Medium;
 
   return (
     <div
-      className={`
-        flex items-center justify-between
-        p-4
-        rounded-2xl
-        border
-        transition-all duration-300
-        cursor-pointer
-
-        ${
-          completed
-            ? "bg-[#F4B400]/10 border-[#F4B400]"
-            : "bg-white border-[#E2E8F0] hover:border-[#F4B400] hover:shadow-md"
-        }
-      `}
+      className="
+      bg-white
+      border border-[#E2E8F0]
+      rounded-3xl
+      p-5
+      shadow-sm
+      hover:shadow-md
+      hover:-translate-y-1
+      transition-all duration-300
+    "
     >
-      <div className="flex items-center gap-4">
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={handleClick}
-          className="
-            w-5 h-5
-            accent-[#F4B400]
-            cursor-pointer
-          "
-        />
+      <div className="flex justify-between items-start gap-4">
 
-        <span
+        {/* Left */}
+        <div className="flex items-start gap-4 flex-1">
+
+          {/* Complete Button */}
+          <button
+            onClick={onComplete}
+            className="
+    transition-all
+    duration-300
+    hover:scale-110
+  "
+          >
+            {task.completed ? (
+              <FaCheckCircle className="text-2xl text-green-500" />
+            ) : (
+              <FaRegCircle className="text-2xl text-gray-300 hover:text-green-400" />
+            )}
+          </button>
+
+          {/* Task Info */}
+          <div className="flex-1">
+
+            <h3
+              className={`
+                text-lg font-semibold
+                transition-all
+                ${task.completed
+                  ? "line-through text-gray-400"
+                  : "text-[#0B1F3A]"
+                }
+              `}
+            >
+              {task.title}
+            </h3>
+
+            <div className="flex items-center gap-2 mt-2 text-sm text-gray-400">
+              {/* <FaCalendarAlt className="text-xs" /> */}
+
+              <span>
+                {/* {new Date(task.createdAt).toLocaleDateString()} */}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Priority Badge */}
+        <div
           className={`
-            font-medium transition-all
-            ${
-              completed
-                ? "text-gray-400 line-through"
-                : "text-[#0B1F3A]"
-            }
+            px-3 py-1.5
+            rounded-full
+            text-sm
+            font-medium
+            flex items-center gap-2
+            ${style.bg}
+            ${style.text}
           `}
         >
-          {task}
-        </span>
-      </div>
+          {/* <FaFlag className="text-xs" /> */}
+          {task.priority}
+        </div>
 
-      {completed && (
-        <span
-          className="
-            px-3 py-1
-            rounded-full
-            bg-[#F4B400]
-            text-[#0B1F3A]
-            text-xs
-            font-semibold
-          "
-        >
-          Done
-        </span>
-      )}
+      </div>
     </div>
   );
 };

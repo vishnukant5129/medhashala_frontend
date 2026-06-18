@@ -1,67 +1,57 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import GoalForm from "../components/planner/GoalForm";
-import PlanCard from "../components/planner/PlanCard";
+import DailyTaskForm from "../components/dailyTask/DailyTaskForm";
 
 const Planner = () => {
-  const [plans, setPlans] = useState([]);
-
-  const handleGenerate = (data) => {
-    const newPlan = {
-      id: Date.now(),
-      title: `Goal: ${data.goal}`,
-      description: `Complete this in ${data.duration} days with daily consistency and focused practice.`,
-    };
-
-    setPlans((prev) => [newPlan, ...prev]);
-  };
+  const [activeTab, setActiveTab] = useState("goal");
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] p-6 space-y-10">
+    <div className="min-h-screen bg-[#F8FAFC] p-6">
+
       {/* Header */}
-      <div>
+      <div className="mb-8">
         <h1 className="text-4xl font-bold text-[#0B1F3A]">
-          AI Study Planner
+          Planner
         </h1>
 
         <p className="text-gray-500 mt-2">
-          Generate smart study plans based on your goals and duration.
+          Manage your study goals and daily tasks
         </p>
       </div>
 
-      {/* Form Section */}
-      <div className="max-w-2xl">
-        <GoalForm onGenerate={handleGenerate} />
+      {/* Navigation Boxes */}
+      <div className="flex gap-5 mb-8">
+
+        <button
+          onClick={() => setActiveTab("goal")}
+          className={`px-8 py-4 rounded-2xl font-semibold transition
+          ${activeTab === "goal"
+              ? "bg-[#F4B400] text-[#0B1F3A]"
+              : "bg-white border border-[#E2E8F0]"
+            }`}
+        >
+          Study Goals
+        </button>
+
+        <button
+          onClick={() => setActiveTab("daily")}
+          className={`px-8 py-4 rounded-2xl font-semibold transition
+          ${activeTab === "daily"
+              ? "bg-[#F4B400] text-[#0B1F3A]"
+              : "bg-white border border-[#E2E8F0]"
+            }`}
+        >
+          Daily Tasks
+        </button>
+
       </div>
 
-      {/* Plans Section */}
-      <div>
-        {plans.length === 0 ? (
-          <div
-            className="
-              bg-white
-              border border-[#E2E8F0]
-              rounded-3xl
-              p-10
-              text-center
-              shadow-sm
-            "
-          >
-            <h2 className="text-2xl font-bold text-[#0B1F3A]">
-              No Plans Yet
-            </h2>
-
-            <p className="text-gray-500 mt-2">
-              Create your first AI-powered study plan above.
-            </p>
-          </div>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {plans.map((plan) => (
-              <PlanCard key={plan.id} plan={plan} />
-            ))}
-          </div>
-        )}
-      </div>
+      {/* Render */}
+      {activeTab === "goal" ? (
+        <GoalForm />
+      ) : (
+        <DailyTaskForm />
+      )}
     </div>
   );
 };
