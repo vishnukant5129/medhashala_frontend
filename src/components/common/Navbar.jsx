@@ -49,7 +49,7 @@ const Navbar = () => {
         </button> */}
 
         {/* Profile */}
-        <Tooltip text="open" position="bottom">
+        <Tooltip text="profile" position="bottom">
           <NavLink
             to="/profile"
             className="

@@ -1,10 +1,29 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GraduationCap } from "lucide-react";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [showPassword, setShowPassword] = useState(false);
+    const from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token && token !== "null" && token !== "undefined") {
+            navigate(from, { replace: true });
+        }
+    }, [navigate, from]);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        // Temporary token-based login until backend is available
+        localStorage.setItem("token", "123");
+
+        navigate(from, { replace: true });
+    };
 
     return (
         <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center px-4">
@@ -26,7 +45,7 @@ const Login = () => {
                 </div>
 
                 {/* Form */}
-                <form className="space-y-5">
+                <form className="space-y-5" onSubmit={handleLogin}>
                     <div>
                         <label className="block text-sm font-medium text-[#1E293B] mb-2">
                             Email
@@ -76,6 +95,7 @@ const Login = () => {
                     </div>
 
                     <button
+                        type="submit"
                         className="w-full bg-[#0B1F3A] text-white py-3 rounded-xl font-semibold hover:opacity-95 transition"
                     >
                         Login
