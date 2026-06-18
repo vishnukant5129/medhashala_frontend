@@ -1,11 +1,4 @@
-import {
-  FaCheckCircle,
-  FaFlag,
-  FaCalendarAlt,
-  FaRegCircle
-} from "react-icons/fa";
-
-
+import { FaCheckSquare, FaRegSquare, FaTrash } from "react-icons/fa";
 
 const priorityStyles = {
   High: {
@@ -22,7 +15,7 @@ const priorityStyles = {
   },
 };
 
-const TaskCard = ({ task, onComplete }) => {
+const TaskCard = ({ task, onComplete, onDelete }) => {
   const style =
     priorityStyles[task.priority] || priorityStyles.Medium;
 
@@ -54,9 +47,9 @@ const TaskCard = ({ task, onComplete }) => {
   "
           >
             {task.completed ? (
-              <FaCheckCircle className="text-2xl text-green-500" />
+              <FaCheckSquare className="text-2xl text-green-500" />
             ) : (
-              <FaRegCircle className="text-2xl text-gray-300 hover:text-green-400" />
+              <FaRegSquare className="text-2xl text-gray-300 hover:text-green-400" />
             )}
           </button>
 
@@ -86,20 +79,46 @@ const TaskCard = ({ task, onComplete }) => {
           </div>
         </div>
 
-        {/* Priority Badge */}
-        <div
-          className={`
-            px-3 py-1.5
-            rounded-full
-            text-sm
-            font-medium
-            flex items-center gap-2
-            ${style.bg}
-            ${style.text}
-          `}
-        >
-          {/* <FaFlag className="text-xs" /> */}
-          {task.priority}
+        <div className="flex items-center gap-3">
+
+          {/* Priority Badge */}
+          <div
+            className={`
+      px-3 py-1.5
+      rounded-full
+      text-sm
+      font-medium
+      ${style.bg}
+      ${style.text}
+    `}
+          >
+            {task.priority}
+          </div>
+
+          {/* Delete Button */}
+          <button
+            onClick={() => {
+              const confirmDelete = window.confirm(
+                "Are you sure you want to delete this task?"
+              );
+
+              if (confirmDelete) {
+                onDelete(task.id);
+              }
+            }}
+            className="
+    w-10 h-10
+    rounded-xl
+    bg-red-50
+    text-red-500
+    flex items-center justify-center
+    hover:bg-red-100
+    transition-all duration-300
+  "
+          >
+            <FaTrash />
+          </button>
+
         </div>
 
       </div>

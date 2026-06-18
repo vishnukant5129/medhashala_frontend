@@ -59,9 +59,9 @@ const Dashboard = () => {
     const updatedTasks = tasks.map((task) =>
       task.id === id
         ? {
-            ...task,
-            completed: !task.completed,
-          }
+          ...task,
+          completed: !task.completed,
+        }
         : task
     );
 
@@ -107,6 +107,21 @@ const Dashboard = () => {
           : "Keep Going",
     },
   ];
+
+  const handleDeleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+
+    setTasks(updatedTasks);
+
+    localStorage.setItem(
+      "daily_tasks",
+      JSON.stringify(updatedTasks)
+    );
+
+    setCompletedTasksCount(
+      updatedTasks.filter((task) => task.completed).length
+    );
+  };
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] p-6 space-y-8 text-[#1E293B]">
@@ -170,6 +185,7 @@ const Dashboard = () => {
                   onComplete={() =>
                     handleTaskStateUpdate(task.id)
                   }
+                  onDelete={handleDeleteTask}
                 />
               ))
             )}
