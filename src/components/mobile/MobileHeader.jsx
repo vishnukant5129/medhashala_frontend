@@ -6,8 +6,6 @@ import { NavLink } from "react-router-dom";
 
 function MobileHeader({ userName = "Vishnu" }) {
     const [open, setOpen] = useState(false);
-    // const userName = 'vishnu';
-
 
     return (
         <>
@@ -15,7 +13,7 @@ function MobileHeader({ userName = "Vishnu" }) {
                 {/* Left side: Hamburger Button & Title */}
                 <div className="flex items-center gap-3">
                     <NavLink
-                        to="/"
+                        to="/dashboard"
                     >
                         <h1 className="text-2xl font-bold text-[#F4B400] tracking-tight">
                             Medhashala
