@@ -1,6 +1,6 @@
 import { FaBell } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import Tooltip from "./Tooltip.jsx";
+import Tooltip from "../common/Tooltip.jsx";
 
 const getGreeting = () => {
   const hour = new Date().getHours();

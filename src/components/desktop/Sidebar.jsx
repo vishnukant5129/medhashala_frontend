@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import Tooltip from "./Tooltip.jsx";
+import Tooltip from "../common/Tooltip.jsx";
 
 import {
   FaHome,
@@ -70,14 +70,10 @@ const Sidebar = () => {
       {/* Header */}
       <div className="flex items-center justify-between p-5 border-b border-[#1E293B]">
         {!collapsed && (
-          <div>
+          <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold text-[#F4B400]">
               Medhashala
             </h1>
-
-            <p className="text-xs text-gray-300">
-              Productivity Platform
-            </p>
           </div>
         )}
         <Tooltip text={collapsed ? "Open Menu" : "Close Menu"}>

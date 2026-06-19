@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-import Sidebar from "../components/common/Sidebar";
-import Navbar from "../components/common/Navbar";
+import Sidebar from "../components/desktop/Sidebar.jsx";
+import Navbar from "../components/desktop/Navbar.jsx";
 
 import MobileHeader from "../components/mobile/MobileHeader";
 import BottomNav from "../components/mobile/BottomNav";
