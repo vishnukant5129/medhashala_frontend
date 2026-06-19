@@ -37,7 +37,7 @@ const Profile = () => {
         {/* Content */}
         <div className="px-8 pb-8">
           {/* Profile Top */}
-          <div className="flex flex-col md:flex-row md:items-end gap-6 -mt-16">
+          <div className="flex flex-col md:flex-row md:items-end gap-6 -mt-6">
             <img
               src={user.image}
               alt={user.name}
@@ -52,6 +52,7 @@ const Profile = () => {
 
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-[#0B1F3A]">
+                {/* <h1 className="text-3xl font-bold text-white"> */}
                 {user.name}
               </h1>
 

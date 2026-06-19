@@ -4,18 +4,24 @@ import { useState } from "react";
 import Tooltip from "../common/Tooltip"; // Ensure paths are correct
 import { NavLink } from "react-router-dom";
 
-function MobileHeader({ userName = "Student" }) {
+function MobileHeader({ userName = "Vishnu" }) {
     const [open, setOpen] = useState(false);
+    // const userName = 'vishnu';
+
 
     return (
         <>
             <header className="sticky top-0 z-40 bg-white px-4 py-3 flex justify-between items-center border-b border-slate-100 shadow-sm lg:hidden">
                 {/* Left side: Hamburger Button & Title */}
                 <div className="flex items-center gap-3">
+                    <NavLink
+                        to="/"
+                    >
+                        <h1 className="text-xl font-bold text-[#0B1F3A] tracking-tight">
+                            Medhashala
+                        </h1>
+                    </NavLink>
 
-                    <h1 className="text-xl font-bold text-[#0B1F3A] tracking-tight">
-                        Medhashala
-                    </h1>
                 </div>
 
                 {/* Right side: Profile Button */}
@@ -29,7 +35,7 @@ function MobileHeader({ userName = "Student" }) {
                             alt="Profile"
                             className="w-8 h-8 rounded-full border-2 border-[#F4B400]"
                         />
-                        <div className="text-left hidden xs:block">
+                        <div className="text-left  xs:block">
                             <h4 className="text-xs font-semibold text-[#0B1F3A] leading-none">
                                 {userName}
                             </h4>
