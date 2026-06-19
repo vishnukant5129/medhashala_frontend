@@ -1,62 +1,43 @@
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
-import MobileDrawer from "./MobileDrawer";
-import Tooltip from "../common/Tooltip";
+// import MobileDrawer from "./MobileDrawer";
+import Tooltip from "../common/Tooltip"; // Ensure paths are correct
 import { NavLink } from "react-router-dom";
 
-function MobileHeader() {
-
+function MobileHeader({ userName = "Student" }) {
     const [open, setOpen] = useState(false);
 
     return (
         <>
-            <header className="sticky top-0 z-50 bg-white px-4 py-4 flex justify-between items-center shadow">
+            <header className="sticky top-0 z-40 bg-white px-4 py-3 flex justify-between items-center border-b border-slate-100 shadow-sm lg:hidden">
+                {/* Left side: Hamburger Button & Title */}
+                <div className="flex items-center gap-3">
 
-                <h1 className="text-xl font-bold text-[#0B1F3A]">
-                    Medhashala
-                </h1>
+                    <h1 className="text-xl font-bold text-[#0B1F3A] tracking-tight">
+                        Medhashala
+                    </h1>
+                </div>
 
-                <Tooltip text="profile" position="bottom">
+                {/* Right side: Profile Button */}
+                <Tooltip text="Profile" position="bottom">
                     <NavLink
                         to="/profile"
-                        className="
-            flex items-center gap-3
-            bg-white
-            border border-[#E2E8F0]
-            rounded-2xl
-            px-3 py-2
-            shadow-sm
-            hover:shadow-md
-            transition
-          "
+                        className="flex items-center gap-2 bg-white border border-[#E2E8F0] rounded-full p-1 pr-3 shadow-sm hover:shadow-md transition"
                     >
                         <img
                             src="https://i.pravatar.cc/40"
                             alt="Profile"
-                            className="
-              w-11 h-11 rounded-full
-              border-2 border-[#F4B400]
-            "
+                            className="w-8 h-8 rounded-full border-2 border-[#F4B400]"
                         />
-
-                        <div className="hidden md:block">
-                            <h4 className="font-semibold text-[#0B1F3A]">
-                                {name}
+                        <div className="text-left hidden xs:block">
+                            <h4 className="text-xs font-semibold text-[#0B1F3A] leading-none">
+                                {userName}
                             </h4>
-
-                            <p className="text-xs text-gray-500">
-                                Student
-                            </p>
                         </div>
                     </NavLink>
                 </Tooltip>
-
             </header>
 
-            <MobileDrawer
-                open={open}
-                setOpen={setOpen}
-            />
         </>
     );
 }
