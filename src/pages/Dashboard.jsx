@@ -95,7 +95,7 @@ const Dashboard = () => {
       title: "Streak",
       value: `${streak} Days`,
       icon: <FaFire />,
-      progress: "On Fire 🔥",
+      progress: "On Fire",
     },
     {
       title: "Productivity",
