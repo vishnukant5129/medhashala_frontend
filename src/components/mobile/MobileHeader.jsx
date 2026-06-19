@@ -17,7 +17,7 @@ function MobileHeader({ userName = "Vishnu" }) {
                     <NavLink
                         to="/"
                     >
-                        <h1 className="text-xl font-bold text-[#0B1F3A] tracking-tight">
+                        <h1 className="text-2xl font-bold text-[#F4B400] tracking-tight">
                             Medhashala
                         </h1>
                     </NavLink>
