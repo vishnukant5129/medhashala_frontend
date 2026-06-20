@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Tooltip from "../common/Tooltip";
 import { FaBars, FaSignOutAlt } from "react-icons/fa";
@@ -7,6 +7,16 @@ import { menuItems } from "../../data/navigation";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("token");
+
+
+    navigate("/login", { replace: true });
+  };
 
   return (
     <aside
@@ -100,6 +110,7 @@ const Sidebar = () => {
               hover:bg-red-500/25
               transition-all duration-200
             "
+            onClick={handleLogout}
           >
             <FaSignOutAlt className="shrink-0" />
 

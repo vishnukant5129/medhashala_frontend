@@ -5,9 +5,13 @@ import {
   FaTasks,
   FaClock,
   FaUsers,
+  FaSignOutAlt,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   const user = {
     name: "Vishnu Kant Ray",
     email: "vishnu@example.com",
@@ -17,6 +21,14 @@ const Profile = () => {
     completedTasks: 28,
     studyHours: 96,
     roomsJoined: 7,
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+
+    navigate("/login", {
+      replace: true,
+    });
   };
 
   return (
@@ -52,7 +64,6 @@ const Profile = () => {
 
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-[#0B1F3A]">
-                {/* <h1 className="text-3xl font-bold text-white"> */}
                 {user.name}
               </h1>
 
@@ -67,22 +78,44 @@ const Profile = () => {
               </p>
             </div>
 
-            <button
-              className="
-                px-6 py-3
-                bg-[#F4B400]
-                text-[#0B1F3A]
-                font-semibold
-                rounded-2xl
-                hover:scale-105
-                transition-all
-              "
-            >
-              Edit Profile
-            </button>
+            {/* Buttons */}
+            <div className="flex gap-3 flex-wrap">
+              <button
+                className="
+                  px-6 py-3
+                  bg-[#F4B400]
+                  text-[#0B1F3A]
+                  font-semibold
+                  rounded-2xl
+                  hover:scale-105
+                  transition-all
+                "
+              >
+                Edit Profile
+              </button>
+
+              {/* Desktop Logout */}
+              <button
+                onClick={handleLogout}
+                className="
+                  hidden md:flex
+                  items-center gap-2
+                  px-6 py-3
+                  bg-red-500
+                  text-white
+                  font-semibold
+                  rounded-2xl
+                  hover:bg-red-600
+                  transition-all
+                "
+              >
+                <FaSignOutAlt />
+                Logout
+              </button>
+            </div>
           </div>
 
-          {/* Bio Section */}
+          {/* About */}
           <div className="mt-10">
             <h2 className="text-2xl font-bold text-[#0B1F3A] mb-3">
               About
@@ -143,7 +176,7 @@ const Profile = () => {
               </h3>
             </div>
 
-            {/* Rooms */}
+            {/* Rooms Joined */}
             <div
               className="
                 bg-white
@@ -166,6 +199,27 @@ const Profile = () => {
                 {user.roomsJoined}
               </h3>
             </div>
+          </div>
+
+          {/* Mobile Logout */}
+          <div className="mt-10 md:hidden">
+            <button
+              onClick={handleLogout}
+              className="
+                w-full
+                bg-red-500
+                hover:bg-red-600
+                text-white
+                py-4
+                rounded-2xl
+                font-semibold
+                flex items-center justify-center gap-3
+                transition
+              "
+            >
+              <FaSignOutAlt />
+              Logout
+            </button>
           </div>
         </div>
       </div>

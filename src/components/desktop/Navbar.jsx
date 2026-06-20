@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* Profile */}
         <Tooltip text="profile" position="bottom">
           <NavLink
-            to="/profile"
+            to="/dashboard/profile"
             className="
             flex items-center gap-3
             bg-white
