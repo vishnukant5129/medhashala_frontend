@@ -25,7 +25,7 @@ function MobileHeader({ userName = "Vishnu" }) {
                 {/* Right side: Profile Button */}
                 <Tooltip text="Profile" position="bottom">
                     <NavLink
-                        to="/profile"
+                        to="/dashboard/profile"
                         className="flex items-center gap-2 bg-white border border-[#E2E8F0] rounded-full p-1 pr-3 shadow-sm hover:shadow-md transition"
                     >
                         <img
