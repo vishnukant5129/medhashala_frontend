@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ThemeButton from "../common/ThemeButton.jsx";
 
 const Navbar = () => {
     return (
@@ -7,7 +8,7 @@ const Navbar = () => {
             <h1 className="text-3xl font-bold text-yellow-400">
                 MedhaShala
             </h1>
-            
+
             <div className="flex gap-4">
                 <Link
                     to="/login"
@@ -22,6 +23,9 @@ const Navbar = () => {
                 >
                     Sign Up
                 </Link>
+                <div className="mt-auto">
+                    <ThemeButton />
+                </div>
             </div>
         </nav>
     );
